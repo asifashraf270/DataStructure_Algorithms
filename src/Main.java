@@ -9,7 +9,6 @@ public class Main {
     }
 
     public static int binarysearch(int arr[],int n,int k){
-
         for (int i=0;i<n;i++){
             if(arr[i]==k){
                 return i;
