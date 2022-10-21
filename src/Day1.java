@@ -3,9 +3,45 @@ import java.util.Arrays;
 public class Day1 {
 
 public static void  main(String[] args){
-    int[] input={1,-2,3};
-    rearrancePositiveNo(input);
+    int[] input={1,2,3,4,5};
+    rearrange(input);
 }
+public static void rearrange(int[] input){
+    int start=0;
+    int end=input.length-1;
+    int[] newArray=new int[input.length];
+    while (start<end){
+        newArray[start]=input[end];
+        start++;
+        end--;
+    }
+    for (int i=0;i<input.length;i++){
+        System.out.println(newArray[i]);
+    }
+}
+public static void secondHighestNo(int[] array){
+    Arrays.sort(array);
+    System.out.println(array[array.length-2]);
+}
+public static void smallestNo(int[] arr){
+    int smallest=arr[0];
+    for (int i=1;i<arr.length;i++){
+        if(arr[i]<smallest){
+            smallest=arr[i];
+        }
+    }
+    System.out.println(smallest);
+}
+public static void largestNo(int[] arr){
+    int no=arr[0];
+    for (int i=1;i<arr.length;i++){
+        if(arr[i]>no){
+            no=arr[i];
+        }
+    }
+    System.out.println(no);
+}
+
 
 public static void rearrancePositiveNo(int[] arr){
 
