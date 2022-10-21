@@ -1,8 +1,13 @@
 public class Day1 {
 
 public static void  main(String[] args){
-    int[] input={2,4,8,0};
-    hammingDistance(input);
+    int[] input={1,2,3,4,5};
+    reverseString("hello");
+}
+
+public static void rearranceOrder(int[] arr){
+    int[] positiveArray=new int[arr.length];
+
 }
     public static void rotateArry(int[] arr,int d){
         int p=0;
@@ -142,6 +147,36 @@ public static void  main(String[] args){
             }
         }
         System.out.println(result);
+    }
+
+    public static void reverseArray(int[] arr){
+        int start=0;
+        int end=arr.length-1;
+        int temp;
+        while (start<end){
+            temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;
+            end--;
+        }
+        for (int i=0;i<arr.length;i++){
+            System.out.println(arr[i]);
+        }
+    }
+
+    public static void reverseString(String input){
+    int start=0;
+    char[] string=input.toCharArray();
+    int end=input.length()-1;
+    while (start<end){
+        char temp=input.charAt(start);
+        string[start]=string[end];
+        string[end]=temp;
+        start++;
+        end--;
+    }
+    System.out.println(String.valueOf(string));
     }
 
 }
