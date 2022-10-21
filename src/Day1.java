@@ -1,24 +1,29 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Day1 {
 
 public static void  main(String[] args){
     int[] input={1,2,3,4,5};
-    rearrange(input);
+    rearrangement(input);
 }
-public static void rearrange(int[] input){
-    int start=0;
-    int end=input.length-1;
-    int[] newArray=new int[input.length];
-    while (start<end){
-        newArray[start]=input[end];
-        start++;
-        end--;
+
+public static void rearrangement(int[] arr){
+    List<Integer> output=new ArrayList<>();
+    int min=0;
+    int max=arr.length-1;
+    while (min<max){
+        output.add(arr[max]);
+        output.add(arr[min]);
+        min++;
+        max--;
     }
-    for (int i=0;i<input.length;i++){
-        System.out.println(newArray[i]);
+    for (int i=0;i<output.size();i++){
+        System.out.print(output.get(i));
     }
 }
+
 public static void secondHighestNo(int[] array){
     Arrays.sort(array);
     System.out.println(array[array.length-2]);
