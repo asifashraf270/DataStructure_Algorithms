@@ -5,9 +5,21 @@ import java.util.Collections;
 
 public class Day2 {
     public static void main(String[] args){
-        int[] input={1,3,4,2,6,5,8,7};
-        findMean(input);
+        int[] input={11,8,5,7,5,100};
+        minimumProductK(input,4);
     }
+    /*Minimum product of k integers in an array of positive Integers
+     */
+
+    public static void minimumProductK(int[] arg,int k){
+        Arrays.sort(arg);
+        int sum=1;
+        for (int i=0;i<k;i++){
+            sum=sum*arg[i];
+        }
+        System.out.print(sum);
+    }
+
     /*Find Mean*/
     public static void findMean(int[] arg){
         int sum=0;
@@ -197,7 +209,7 @@ public class Day2 {
             System.out.print(temp[i]+" ");
         }
     }
-public static void moveZero(int[] arg){
+  public static void moveZero(int[] arg){
         int count=0;
         for (int i=0;i<arg.length;i++){
             if(arg[i]!=0){
