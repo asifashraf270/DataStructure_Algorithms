@@ -5,9 +5,75 @@ import java.util.Collections;
 
 public class Day2 {
     public static void main(String[] args){
-        int[] input={7,10,4,3,20,15};
-        kSmallest(input,4);
+        int[] input={1,3,4,2,6,5,8,7};
+        findMean(input);
     }
+    /*Find Mean*/
+    public static void findMean(int[] arg){
+        int sum=0;
+        int mean=0;
+        for (int i=0;i<arg.length;i++){
+            sum=sum+arg[i];
+        }
+        mean=sum/arg.length;
+        System.out.print(mean+"...mean");
+        Arrays.sort(arg);
+        if(arg.length%2==0){
+            int average=arg[arg.length/2]+arg[(arg.length/2)+1];
+            System.out.print(average/2+"//median");
+
+        }
+    }
+    /*Find all elements in array which have at-least two greater elements
+    * */
+
+    public static void twoGreaterElement(int[] arg){
+        for (int i=0;i<arg.length;i++){
+            int count=0;
+            for (int j=0;j<arg.length;j++){
+                if(arg[j]>arg[i]){
+                    count++;
+                }
+
+            }
+            if(count>=2){
+                System.out.print(arg[i]+"");
+                continue;
+            }
+        }
+    }
+    /*
+    Top 3 values
+    * */
+    public static void large3(int[] arg){
+        int first,second,third;
+        first=second=third=Integer.MIN_VALUE;
+        for (int i=0;i<arg.length;i++){
+            if(arg[i]>first){
+                third=second;
+                second=first;
+                first=arg[i];
+
+            }else if(arg[i]>second){
+                third=second;
+                second=arg[i];
+            }else if(arg[i]>third){
+                third=arg[i];
+            }
+        }
+        System.out.print(first+"/"+second+"/"+third);
+    }
+    public static void largestNo(int[] arg){
+        int largeValue=arg[0];
+        for (int i=1;i<arg.length;i++){
+            if(arg[i]>largeValue){
+                largeValue=arg[i];
+            }
+        }
+        System.out.print(largeValue);
+    }
+
+
     /*K’th Smallest/Largest Element in Unsorted Array | Set 1*/
     public static void kSmallest(int[] arg,int k){
         Arrays.sort(arg);
