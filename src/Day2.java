@@ -4,9 +4,88 @@ import java.util.Arrays;
 
 public class Day2 {
     public static void main(String[] args){
-        int[] input={3,2,1,0};
-        rearrangeArray(input);
+        int[] input={1,-3,5,6,-3,6,7,-4,9,10};
+        rearrangePositive(input);
     }
+    /*Positive elements at even and negative at odd positions (Relative order not maintained)
+     */
+    public static void rearrangePositive(int[] arg){
+        int positive=0;int neg=1;
+        int temp=0;
+        while (true){
+            while (positive<arg.length && arg[positive]>=0){
+                positive+=2;
+            }
+            while (neg<arg.length && arg[neg]<=0){
+                neg+=2;
+            }
+            if(positive<arg.length && neg<arg.length){
+                temp=arg[positive];
+                arg[positive]=arg[neg];
+                arg[neg]=temp;
+            }else {
+                break;
+            }
+        }
+        for (int i=0;i<arg.length;i++){
+            System.out.print(arg[i]+" ");
+        }
+    }
+
+    /*Rearrange array such that even index elements are smaller and odd index elements are greater
+    * */
+
+    public static void evenOdd(int[] arg){
+        int temp=0;
+        for (int i=0;i<arg.length;i++){
+            if(i%2==0){
+                if(i+1<arg.length&&arg[i]>arg[i+1]){
+                    temp=arg[i];
+                    arg[i]=arg[i+1];
+                    arg[i+1]=temp;
+                }
+            }else {
+                if(i+1<arg.length&&arg[i]<arg[i+1]){
+                    temp=arg[i];
+                    arg[i]=arg[i+1];
+                    arg[i+1]=temp;
+                }
+            }
+        }
+        for (int i=0;i<arg.length;i++){
+            System.out.print(arg[i]+" ");
+        }
+    }
+    /*
+    * Move all negative elements to end in order with extra space allowed*/
+    public static void moveNegative(int[] arg){
+        int[] tempArray=new int[arg.length];
+        int count=0;
+        for (int i=0;i<arg.length;i++){
+            if(arg[i]>0){
+                tempArray[count]=arg[i];
+                count++;
+            }
+        }
+        for (int i=0;i<arg.length;i++){
+            if(arg[i]<0){
+                tempArray[count]=arg[i];
+                count++;
+            }
+        }
+        for (int i=0;i<arg.length;i++){
+            System.out.print(tempArray[i]+" ");
+        }
+    }
+    /*
+    * Move all negative numbers to beginning and positive to end with constant extra space*/
+    public static void negativeFirstApproach(int[] arg){
+        Arrays.sort(arg);
+        for (int i=0;i<arg.length;i++){
+            System.out.print(arg[i]+" ");
+        }
+    }
+
     /*
      * Rearrange an array such that ‘arr[j]’ becomes ‘i’ if ‘arr[i]’ is ‘j’ | Set 1*/
 
