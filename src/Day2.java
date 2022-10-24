@@ -1,11 +1,22 @@
 import sun.lwawt.macosx.CSystemTray;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Day2 {
     public static void main(String[] args){
-        int[] input={1,-3,5,6,-3,6,7,-4,9,10};
-        rearrangePositive(input);
+        int[] input={1,23,12,9,30,2,50};
+        KlargestNo(input,3);
+    }
+    /*k largest(or smallest) elements in an array
+
+     * */
+
+    public static void KlargestNo(int[] arg,int k){
+        Arrays.sort(arg);
+        for (int i=arg.length-1;i>=arg.length-k;i--){
+            System.out.print(arg[i]+" ");
+        }
     }
     /*Positive elements at even and negative at odd positions (Relative order not maintained)
      */
