@@ -1,11 +1,56 @@
+import sun.lwawt.macosx.CSystemTray;
+
 import java.util.Arrays;
 
 public class Day2 {
     public static void main(String[] args){
-        int[] input={2,2,0,4,0,8};
-        doubleFirstElement(input);
+        int[] input={3,2,1,0};
+        rearrangeArray(input);
+    }
+    /*
+     * Rearrange an array such that ‘arr[j]’ becomes ‘i’ if ‘arr[i]’ is ‘j’ | Set 1*/
+
+    public static void rearrangeArray(int[] arg){
+        int[] temp=new int[arg.length];
+        for (int i=0;i<arg.length;i++){
+            temp[arg[i]]=arg[i];
+        }
+        for (int i=0;i<temp.length;i++){
+            System.out.print(temp[i]+" ");
+        }
     }
 
+
+
+    /*
+
+    * Reorder an array
+    * */
+    public static void reorderArray(int[] input,int[] indexes){
+        int[] temp=new int[input.length];
+        for (int i=0;i<indexes.length;i++){
+            temp[indexes[i]]=input[i];
+        }
+        for (int i=0;i<temp.length;i++){
+            System.out.print(temp[i]+" ");
+        }
+    }
+public static void moveZero(int[] arg){
+        int count=0;
+        for (int i=0;i<arg.length;i++){
+            if(arg[i]!=0){
+                arg[count]=arg[i];
+                count++;
+            }
+        }
+        while (count<arg.length){
+            arg[count]=0;
+            count++;
+        }
+        for (int i=0;i<arg.length;i++){
+            System.out.print(arg[i]+" ");
+        }
+}
 
 /*  First Element Double*/
     public static void doubleFirstElement(int[] arg){
