@@ -5,9 +5,15 @@ import java.util.Collections;
 
 public class Day2 {
     public static void main(String[] args){
-        int[] input={1,23,12,9,30,2,50};
-        KlargestNo(input,3);
+        int[] input={7,10,4,3,20,15};
+        kSmallest(input,4);
     }
+    /*K’th Smallest/Largest Element in Unsorted Array | Set 1*/
+    public static void kSmallest(int[] arg,int k){
+        Arrays.sort(arg);
+        System.out.print(arg[k-1]);
+    }
+
     /*k largest(or smallest) elements in an array
 
      * */
