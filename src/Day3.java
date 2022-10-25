@@ -4,8 +4,39 @@ public class Day3 {
 
 
     public static void main(String [] args){
-        int[] input={1,2,3,4,5,6,7,8,9,10};
-        deleteIndex(input,5);
+        int[] input={0,-1,2,-3,1};
+        findPair(input,2);
+    }
+
+    public static void findPair(int[] input,int value){
+        for (int i=0;i<input.length;i++){
+            for (int j=i+1;j<input.length;j++){
+                if(input[i]+input[j]==value){
+                    System.out.print("exist");
+                    return;
+                }
+            }
+        }
+        System.out.print("Not Exist");
+
+    }
+
+    public static void binarySearch(int[] input,int value){
+        int l=0;
+        int h=input.length-1;
+        int mid=l+h/2;
+        while (l<h){
+            mid=(l+h)/2;
+            if(value<input[mid]){
+                h=mid;
+            }else if(input[mid]==value){
+                System.out.print(mid+"....found");
+                return;
+            }
+            else {
+                l=mid;
+            }
+        }
     }
     public static void deleteIndex(int[] input,int index){
         for (int i=index;i<input.length-1;i++){
