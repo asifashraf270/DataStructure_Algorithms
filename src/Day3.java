@@ -4,9 +4,40 @@ public class Day3 {
 
 
     public static void main(String [] args){
-        int[] input={0,1,2,6,9};
-        findMissingElement(input,5,10);
+        int[] input={1,2,3,4,5,6,7,8,9,10};
+        deleteIndex(input,5);
     }
+    public static void deleteIndex(int[] input,int index){
+        for (int i=index;i<input.length-1;i++){
+            input[i]=input[i+1];
+        }
+        for (int i=0;i<input.length-1;i++){
+            System.out.print(input[i]+" ");
+        }
+    }
+    public static void insertAnyPosition(int[] input,int value,int index){
+        for (int i=input.length-1;i>index;i--){
+            input[i]=input[i-1];
+        }
+        input[index]=value;
+        for (int i=0;i<input.length;i++){
+            System.out.print(input[i]+" ");
+        }
+    }
+
+
+    public static void insertOperation(int[] arr,int value){
+        arr[arr.length]=value;
+        System.out.print(arr.length);
+    }
+        public static void findElement(int[] input,int k){
+            for (int i=0;i<input.length;i++){
+                if(input[i]==k){
+                    System.out.print(i+"");
+                    return;
+                }
+            }
+        }
 
     public static void secondSmallest(int [] args){
         int smallest=Integer.MAX_VALUE;
